@@ -148,26 +148,9 @@ curl -X POST "http://localhost:8000/predict" \
 
 ---
 
-## Step 4 — Deploy on Render (free, no credit card needed)
+## Step 4 — Deploy on Render 
 
-### 4a. Push to GitHub
-
-```bash
-# In the churn-predictor/ folder
-git init
-git add .
-git commit -m "Initial commit — churn prediction API"
-
-# Create a new repo on github.com, then:
-git remote add origin https://github.com/YOUR_USERNAME/churn-predictor.git
-git branch -M main
-git push -u origin main
-```
-
-> **Important:** Add `*.pkl` to `.gitignore` if your model file is over 100MB.
-> If it is, use Git LFS: `git lfs track "*.pkl"` then `git add .gitattributes`
-
-### 4b. Create Web Service on Render
+### 4a. Create Web Service on Render
 
 1. Go to **render.com** → Sign up with GitHub (free)
 2. Click **New → Web Service**
@@ -191,7 +174,7 @@ git push -u origin main
 > **Free tier note:** The service sleeps after 15 minutes of inactivity.
 > First request after sleep takes ~30 seconds to wake up. This is fine for a portfolio project.
 
-### 4c. Verify deployment
+### 4b. Verify deployment
 
 ```bash
 # Health check
@@ -201,25 +184,6 @@ curl https://churn-predictor.onrender.com/health
 open https://churn-predictor.onrender.com/docs
 ```
 
----
-
-## Step 5 — What to put on your resume
-
-```
-Customer Churn Prediction API
-Python · XGBoost · FastAPI · SHAP · Render
-
-Built end-to-end churn prediction system on IBM Telco data (7,043 customers,
-55 features). XGBoost with 5-fold CV: ROC-AUC=0.99, PR-AUC=0.98. Business-
-optimal threshold via cost matrix. SHAP-driven retention recommendations per
-customer. Deployed as a live REST API on Render.
-
-Live API:  https://churn-predictor.onrender.com
-Docs:      https://churn-predictor.onrender.com/docs
-GitHub:    https://github.com/YOUR_USERNAME/churn-predictor
-```
-
----
 
 ## API Endpoints
 
